@@ -97,6 +97,7 @@ public class Res extends RESTService {
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.TEXT_PLAIN)
   @ApiResponses(value = {
+       @ApiResponse(code = HttpURLConnection.HTTP_BAD_REQUEST, message = "badreq"),
        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "res")
   })
   @ApiOperation(value = "gettest", notes = " ")
@@ -113,6 +114,15 @@ public class Res extends RESTService {
 
 
 
+    // badreq
+    boolean badreq_condition = true;
+    if(badreq_condition) {
+      JSONObject name = new JSONObject();
+
+      
+
+      return Response.status(HttpURLConnection.HTTP_BAD_REQUEST).entity(name.toJSONString()).build();
+    }
     // res
     boolean res_condition = true;
     if(res_condition) {
