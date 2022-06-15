@@ -116,6 +116,31 @@ public class ResTest {
   }
 
 
+  /**
+   * 
+   * Test for the NewTestCase_ID648205 method.
+   * 
+   */
+  @Test
+  public void testNewTestCase_ID648205() {
+    MiniClientCoverage c = new MiniClientCoverage(mainPath);
+    c.setConnectorEndpoint(connector.getHttpEndpoint());
+    
+        
+    try {
+      c.setLogin(AnonymousAgentImpl.IDENTIFIER, "");
+      ClientResponse result = c.sendRequest("GET", "/test/{id}", """
+""", "text/plain", "*/*", new HashMap<>(), "5");
+      System.out.println("Result of request with id: 371381: " + result.getResponse().trim());
+    
+    } catch (Exception e) {
+      e.printStackTrace();
+      fail("Exception: " + e);
+    }
+    
+
+    
+  }
 
 
 
